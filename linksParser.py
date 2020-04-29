@@ -11,8 +11,8 @@ from unidecode import unidecode
 from searchObjects import Author, Affiliation
 from Regions import countryList, stateDict, alphaSpace
 
-# linksParser : Reads each URL from PMID_ListGenerator output and parses specified info
 def linksParser(termCounter, termLinks, searchParameters, searchTerm, searchesHash):
+    '''linksParser reads each URL from PMID_ListGenerator output and parses specified info'''
     print('  '+ searchTerm)
     articleCount = 0; abstract_text = []
     for link in tqdm(termLinks):
