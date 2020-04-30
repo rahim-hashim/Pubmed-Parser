@@ -1,5 +1,5 @@
 # Pubmed Parser
-### Python-based NCBI Scraper
+### Python-Based Scraper and Textual Analysis
 
 The NSF released [data](https://ncses.nsf.gov/pubs/nsb20206/data) stating that 2,555,959 scientific articles were published in 2018, or rather, \~4.86 publications per minute. And as principle investigators expand their research programs across disciplines, and buzzwords make their way into more and more studies (see Pubmed query: 'Artificial Intelligence', 'Reinforcement Learning'), it has become exceedingly more difficult to keep up to date with the immense volume of research being published. In order for researchers to tackle the publication volume bottleneck, we must create stricter initial filters specifying only allow highly-relevant research. 
 
