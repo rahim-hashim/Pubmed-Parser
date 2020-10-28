@@ -9,4 +9,4 @@ To start, clone this repository, and test out different searches on the Pubmed m
 
 ![Selected dataset (though others are compatible as well for this code](docs/images/PubmedHeader.png)
 
-Click on advanced, and check out the [User Guide](https://pubmed.ncbi.nlm.nih.gov/help/) to build specific query constructions, which will be very helpful for using this tool. Next, open the [pubmed-scraper.ipynb](pubmed-scraper.ipynb) notebook. All the following steps should be available in the notebook itself.
+Click on advanced, and check out the [User Guide](https://pubmed.ncbi.nlm.nih.gov/help/) to build specific query constructions, which will be very helpful for using this tool. Next, open the [pubmed-parser.ipynb](pubmed-parser.ipynb) notebook. All the following steps should be available in the notebook itself.
