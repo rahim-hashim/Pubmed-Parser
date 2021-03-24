@@ -9,11 +9,6 @@ class SearchParameters:
         self.searchTerms = parameters['searchTerms']
         self.searchLimit = parameters['searchLimit']
         self.startIndex = parameters['startIndex']
-        self.abstractFlag = parameters['abstractFlag']
-        self.emailFilter = parameters['emailFilter']
-        self.geographyFilter = parameters['geographyFilter']
-        self.authorTermSearch = parameters['authorTermSearch']
-        self.authorScoreFlag = parameters['authorScoreFlag']
 
 class Affiliation:
     def __init__(self):
