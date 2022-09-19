@@ -5,7 +5,7 @@ import urllib.request
 # eSearchLinkGenerator : Generates URL using user-specified [Database][SearchTerms][NumOfPMIDs] for NCBI Entrez Search Engine
 #	Base URL : https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi
 #	For more info on Entrez : https://www.ncbi.nlm.nih.gov/books/NBK25499/#chapter4.ESearch
-def eSearchLinkGenerator(url, searchParameters): 
+def eSearchLinkGenerator(url, searchParameters, api=None): 
 	print('Generating Entrez XML...')
 	urlList = []
 	url = url.split('=')
@@ -15,10 +15,13 @@ def eSearchLinkGenerator(url, searchParameters):
 		for word in termSplit:
 			finalTerm += word + '+'
 		databaseTemp = searchParameters.database + url[1]
-		finalTerm = finalTerm[:-1]; finalTerm += url[2]
+		finalTerm = finalTerm[:-1] # remove trailing '+' from finalTerm
+		finalTerm += url[2]
 		articleVolumeTemp = str(searchParameters.searchLimit) + url[3]
 		indexTemp = str(searchParameters.startIndex) + url[4]
 		updated_url = '='.join([url[0], databaseTemp, finalTerm, articleVolumeTemp, indexTemp])
+		if api != None:
+			updated_url += '&api_key=' + api
 		urlList.append(updated_url)
 		print('   [' + term + '] complete')
 	return urlList

@@ -25,8 +25,8 @@ def linksParser(termLinks, searchParameters, searchTerm):
 		r1 = urllib.request.urlopen(link).read()
 		soup = BeautifulSoup(r1, "html.parser")
 		# ARTICLE NAME Parser
-		articleTitle = soup.find('title').text
-		searchHash['articleTitle'] = articleTitle
+		article_title = soup.find('title').text
+		searchHash['article_title'] = article_title
 		# META INFO (journal title, date published)
 		meta = soup.find_all('meta')
 		author_list = []
@@ -46,6 +46,8 @@ def linksParser(termLinks, searchParameters, searchTerm):
 					keywords = [keyword.strip().rstrip('.').lower() for keyword in keywords_uncleaned]
 					searchHash['keywords'] = keywords
 				elif tag.attrs['name'] == 'citation_publication_date' or tag.attrs['name'] == 'citation_online_date':
+					if len(tag.attrs['content'].split('/')) == 2: # date format (YYYY/MM)
+						tag.attrs['content'] = tag.attrs['content'].split('/')[0]
 					searchHash['publication_date'] = tag.attrs['content']
 				elif tag.attrs['name'] == 'citation_author':
 					author_list.append(tag.attrs['content'])
@@ -53,6 +55,8 @@ def linksParser(termLinks, searchParameters, searchTerm):
 					author_institutions.append(tag.attrs['content'])
 				elif tag.attrs['name'] == 'citation_pmid':
 					PMID = tag.attrs['content']
+				elif tag.attrs['name'] == 'citation_doi':
+					searchHash['doi'] = 'doi.org/' + tag.attrs['content']
 		searchHash['authors'] = author_list
 		searchHash['author_institutions'] = author_institutions
 		searchesHash[PMID] = searchHash
