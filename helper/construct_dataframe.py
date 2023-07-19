@@ -27,5 +27,6 @@ def construct_dataframe(searchesHash: dict) -> pd.DataFrame:
 				authorHash_added.pop('journal_title_abv')
 				collaborators.remove(author)
 				authorHash_added['collaborators'] = collaborators
-				df = df.append(authorHash_added, ignore_index=True)
+				# append authorHash_added to df
+				df = pd.concat([df, pd.DataFrame([authorHash_added])], ignore_index=True)
 	return df

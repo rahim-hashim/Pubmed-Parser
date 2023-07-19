@@ -40,6 +40,6 @@ def PMID_ListGenerator(eSearchList):
 			link = prefix+PMID
 			resultsList.append(link)
 		finalList.append(resultsList)
-		searchTerm = re.findall('<Term>(.*?)</Term>', r)[0]
+		searchTerm = re.findall('<From>(.*?)</From>', r)[0]
 		print('  ' + searchTerm + ':', len(PMID_List), 'results')
 	return finalList
